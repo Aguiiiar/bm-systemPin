@@ -26,8 +26,8 @@ let AppController = class AppController {
     checkPin(pin) {
         return this.appService.checkPin(pin);
     }
-    genPin(token) {
-        return this.appService.genPin(token);
+    genPin(authorization) {
+        return this.appService.genPin(authorization);
     }
 };
 __decorate([
@@ -44,8 +44,8 @@ __decorate([
     __metadata("design:returntype", String)
 ], AppController.prototype, "checkPin", null);
 __decorate([
-    (0, common_1.Post)("/gen/:pin"),
-    __param(0, (0, common_1.Param)()),
+    (0, common_1.Post)("/gen"),
+    __param(0, (0, common_1.Headers)('authorization')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", String)

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Query, Param } from '@nestjs/common';
+import { Controller, Get, Post, Query, Headers } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -11,7 +11,7 @@ export class AppController {
     return this.appService.Bm();
   }
 
-  @Get("/checkPin") 
+  @Get("/checkPin")
   checkPin(@Query("pin") pin: string): string {
 
     // ?pin=%PIN%
@@ -19,8 +19,8 @@ export class AppController {
   }
 
   // Posts
-  @Post("/gen/:pin")
-  genPin(@Param() token: string): string {
-    return this.appService.genPin(token);
+  @Post("/gen")
+  genPin(@Headers('authorization') authorization: string): string {
+    return this.appService.genPin(authorization);
   }
 }

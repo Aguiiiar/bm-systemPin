@@ -1,5 +1,5 @@
 export declare class AppService {
     Bm(): string;
-    genPin(token: string): string;
+    genPin(authorization: string): string;
     checkPin(pin: string): string;
 }

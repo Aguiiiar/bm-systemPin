@@ -4,5 +4,5 @@ export declare class AppController {
     constructor(appService: AppService);
     Bm(): string;
     checkPin(pin: string): string;
-    genPin(token: string): string;
+    genPin(authorization: string): string;
 }

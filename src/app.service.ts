@@ -9,12 +9,11 @@ export class AppService {
     return "BoostMachine - Sempre no topo!!!"
   }
 
-  genPin(token: string): string {
-    let res: string = Object.values(token).toString();
+  genPin(authorization: string): string {
+    const token = authorization.replace("Bearer ", "").trim();
 
-    console.log(res === process.env.BM_KEY);
 
-    if (res === process.env.BM_KEY) {
+    if (token === process.env.BM_KEY) {
       const pin = genPin();
       pins.push(pin);
 

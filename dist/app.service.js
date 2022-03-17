@@ -14,10 +14,9 @@ let AppService = class AppService {
     Bm() {
         return "BoostMachine - Sempre no topo!!!";
     }
-    genPin(token) {
-        let res = Object.values(token).toString();
-        console.log(res === process.env.BM_KEY);
-        if (res === process.env.BM_KEY) {
+    genPin(authorization) {
+        const token = authorization.replace("Bearer ", "").trim();
+        if (token === process.env.BM_KEY) {
             const pin = (0, generator_utils_1.genPin)();
             pins.push(pin);
             (0, generator_utils_1.delPin)(pins);
