@@ -12,7 +12,6 @@ export class AppService {
   genPin(authorization: string): string {
     const token = authorization.replace("Bearer ", "").trim();
 
-
     if (token === process.env.BM_KEY) {
       const pin = genPin();
       pins.push(pin);
@@ -22,7 +21,6 @@ export class AppService {
     }
 
     return "Token invalido";
-
   }
 
   checkPin(pin: string): string {
